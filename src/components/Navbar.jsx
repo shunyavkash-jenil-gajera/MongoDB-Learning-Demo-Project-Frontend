@@ -1,8 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../features/auth/authSlice';
-import { getInitials } from '../utils/helpers';
-import { ROUTES } from '../utils/constants';
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../features/auth/authSlice";
+import { getInitials } from "../utils/helpers";
+import { ROUTES } from "../utils/constants";
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
@@ -17,14 +17,14 @@ const Navbar = () => {
   const getDashboardLink = () => {
     if (!user) return null;
     switch (user.role) {
-      case 'admin':
+      case "admin":
         return ROUTES.ADMIN_DASHBOARD;
-      case 'seller':
+      case "seller":
         return ROUTES.SELLER_DASHBOARD;
-      case 'user':
+      case "user":
         return ROUTES.USER_HOME;
       default:
-        return '/';
+        return "/";
     }
   };
 
@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-indigo-600">
+            <Link className="text-2xl font-bold text-indigo-600">
               E-Commerce
             </Link>
           </div>
@@ -46,7 +46,7 @@ const Navbar = () => {
                 >
                   Dashboard
                 </Link>
-                {user.role === 'user' && (
+                {user.role === "user" && (
                   <Link
                     to={ROUTES.USER_CART}
                     className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
@@ -93,4 +93,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

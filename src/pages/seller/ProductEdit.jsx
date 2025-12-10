@@ -22,7 +22,6 @@ const ProductEdit = () => {
     images: [],
   });
   const [imageFiles, setImageFiles] = useState([]);
-
   useEffect(() => {
     dispatch(fetchSellerProducts());
   }, [dispatch]);

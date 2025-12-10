@@ -33,7 +33,6 @@ import { loadUserFromToken } from "../features/auth/authSlice.js";
 import store from "../app/store.js";
 
 const AppRouter = () => {
-
   const user = localStorage.getItem("user");
   const accessToken = localStorage.getItem("accessToken");
 
@@ -64,7 +63,10 @@ const AppRouter = () => {
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="sellers/create" element={<CreateSeller />} />
         <Route path="sellers" element={<SellerList />} />
-        <Route path="*" element={<Navigate to={ROUTES.ADMIN_DASHBOARD} replace />} />
+        <Route
+          path="*"
+          element={<Navigate to={ROUTES.ADMIN_DASHBOARD} replace />}
+        />
       </Route>
 
       {/* Seller Routes */}
@@ -81,7 +83,10 @@ const AppRouter = () => {
         <Route path="products" element={<ProductList />} />
         <Route path="products/:id/edit" element={<ProductEdit />} />
         <Route path="products/:id/publish" element={<ProductPublish />} />
-        <Route path="*" element={<Navigate to={ROUTES.SELLER_DASHBOARD} replace />} />
+        <Route
+          path="*"
+          element={<Navigate to={ROUTES.SELLER_DASHBOARD} replace />}
+        />
       </Route>
 
       {/* User Routes */}
